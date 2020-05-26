@@ -34,9 +34,8 @@ function check_map(word_map){
     
     word_map = type_handler[typeof(word_map)]
     type_handler['rep_map'] = word_map // Ako je word_map undefined update-amo rep_map zbog ponovnog koristenja
-    //console.log(word_map)
+    //console.log(type_handler) //<---------------------------------------------------------------------------------------
     type_handler[Object.keys(word_map).length];
-    //console.log(word_map)
     return type_handler.rep_map;
 }
 function build_map(repetition_map, next){
@@ -102,7 +101,6 @@ function parse_file(){
 // EXPORT FOR TESTING //
 module.exports = {
     'file':{
-        parse_file: parse_file,
         read_file: read_file,
         export_as_json: export_as_json       
     },
@@ -111,5 +109,10 @@ module.exports = {
         init_map: init_map,
         build_map: build_map,
         check_map: check_map
+    },
+    'pairing':{
+        map_single: map_single,
+        map_double: map_double,
+        map_triple: map_triple
     }
 };

@@ -1,11 +1,11 @@
 var assert = require('assert');
+
 const parse_file = require("../parse_file.js");
 const maping = parse_file['map'];
 
 const init = maping.init_map;
 const build = maping.build_map;
 const check = maping.check_map;
-
 
 describe('init_map funkcija', function() {
     it('init_map za undefined', function () {
@@ -48,11 +48,13 @@ describe('build_map funkcija', function() {
 describe('check_map funkcija', function() {
     it('check_map za undefined', function () {
         let res = check(undefined)
-        assert.equal(res["deafult"], 0);
+        
+        // Everyone jer smo u proslom testu koristili tu rijec i ona je ostala u mapi, to sta ta rijec ostaje nema utjecaj na rad programa samo na test
+        assert.equal(res["Everyone"], 0); 
     });
     it('check_map za {}', function () {
         let res = check({})
-        assert.equal(res["deafult"], 0);
+        assert.equal(res["Everyone"], 0);
     })
     it('check_map za {"Hello": 1}', function () {
         let input = {"Hello": 1}
