@@ -1,10 +1,12 @@
 var assert = require('assert');
-const parse_file = require("../parse_file.js");
 
-const parse = parse_file.parse_file;
-const read_file = parse_file.read_file;
-const build_map = parse_file.build_map;
-const export_map = parse_file.export_as_json;
+const parse_file = require("../parse_file.js");
+const file = parse_file['file'];
+
+
+const parse = file.parse_file;
+const read_file = file.read_file;
+const export_map = file.export_as_json;
 
 
 describe('parse_file funkcija', function() {
@@ -25,18 +27,6 @@ describe('read_file funkcija', function() {
     it('Drugi element polja je "everyone"', function () {
         let result = read_file();
         assert.equal(result[1], 'everyone'); 
-    });
-});
-
-describe('build_map funkcija', function() {
-    it('funckija postoji', function () {
-        build_map();
-    });
-    it('Vracani rijecnik je validan / sadrzava prave podatke', function () {
-        let result = build_map({}, {}, {});
-        assert.notEqual(result['1'], undefined);
-        assert.notEqual(result['2'], undefined); 
-        assert.notEqual(result['3'], undefined); 
     });
 });
 
