@@ -8,23 +8,35 @@ function get_parsed_file(len){
     return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
-function get_suggestion(phrase){
-    
+function get_suggestion(matches, phrase){
+    return Object.keys(matches).map((element) =>{
+        return {word: element, count: matches[element]}
+    }).sort((a, b) => {
+        return b.count - a.count
+    }).map((element) => {
+        return phrase + " " + element.word
+    }).slice(0, 3)
 }
 
 function suggestionTool(phrase){
+    phrase = phrase.toLowerCase()
+
     let type_handler = {
         'phrase': null,
+        'matches': null,
+
         get undefined(){return "No matches"}, 
-        get object(){return get_suggestion(this.phrase)}
+        get object(){return get_suggestion(this.matches, this.phrase)}
     }
+
+    let file = get_parsed_file(phrase.split(" ").length);
     type_handler['phrase'] = phrase;
-    
-    let file = get_parsed_file(phrase.length)
+    type_handler['matches'] = file[phrase]
+
     return type_handler[typeof(file[phrase])]
 }
 
-//console.log(suggestionTool());
+console.log(suggestionTool('I AM just'));
 //["I AM just", "I am often", "I am currently", "I am 90%"]
 
 module.exports = {
@@ -32,6 +44,7 @@ module.exports = {
         get_parsed_file: get_parsed_file,    
     },
     'suggestion':{
-        suggestionTool: suggestionTool
+        suggestionTool: suggestionTool,
+        get_suggestion: get_suggestion
     }
 };

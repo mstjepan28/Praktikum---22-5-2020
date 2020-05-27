@@ -3,7 +3,7 @@ function read_file(){
     const fs = require('fs')
     const filePath = String.raw`C:\Users\Stjepan\Desktop\tdd-demo-master\src\Text\long.txt`;
     
-    return fs.readFileSync(filePath, 'utf8').split(/[\s\n",!.?()@%€$:*+-]/).filter(element => element !== '');
+    return fs.readFileSync(filePath, 'utf8').split(/[\s\n",!.?():*+-]/).filter(element => element !== '');
 }
 
 function export_as_json(single, double, triple){
@@ -12,6 +12,7 @@ function export_as_json(single, double, triple){
     fs.writeFile("./Parsed/single_map.json", JSON.stringify(single), 'utf8', ()=>{console.log("single_map saved!")})
     fs.writeFile("./Parsed/double_map.json", JSON.stringify(double), 'utf8', ()=>{console.log("double_map saved!")})
     fs.writeFile("./Parsed/triple_map.json", JSON.stringify(triple), 'utf8', ()=>{console.log("triple_map saved!")})
+    fs.writeFile("./Parsed/error_handler.json", JSON.stringify({}), 'utf8', ()=>{console.log("error_handler saved!")})
 }
 
 // BUILD MAP //
