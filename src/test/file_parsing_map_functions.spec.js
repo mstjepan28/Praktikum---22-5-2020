@@ -62,3 +62,4 @@ describe('check_map funkcija', function() {
         assert.equal(res["Hello"], 1);
     });
 });
+

@@ -34,7 +34,6 @@ function check_map(word_map){
     
     word_map = type_handler[typeof(word_map)]
     type_handler['rep_map'] = word_map // Ako je word_map undefined update-amo rep_map zbog ponovnog koristenja
-    //console.log(type_handler) //<---------------------------------------------------------------------------------------
     type_handler[Object.keys(word_map).length];
     return type_handler.rep_map;
 }
@@ -96,7 +95,7 @@ function parse_file(){
 
     export_as_json(single, double, triple);
 }
-//parse_file()
+parse_file()
 
 // EXPORT FOR TESTING //
 module.exports = {
