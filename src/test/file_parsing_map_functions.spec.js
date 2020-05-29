@@ -1,6 +1,6 @@
 var assert = require('assert');
 
-const parse_file = require("../parse_file.js");
+const parse_file = require("../Code/parse_file.js");
 const maping = parse_file['map'];
 
 const init = maping.init_map;

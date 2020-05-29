@@ -1,5 +1,5 @@
 var assert = require('assert');
-const word_suggestion = require("../word_suggestion.js");
+const word_suggestion = require("../Code/word_suggestion.js");
 
 const file = word_suggestion['file'];
 const get_parsed_file = file.get_parsed_file;

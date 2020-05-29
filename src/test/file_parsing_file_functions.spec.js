@@ -1,9 +1,8 @@
 var assert = require('assert');
 
-const parse_file = require("../parse_file.js");
+const parse_file = require("../Code/parse_file.js");
 const file = parse_file['file'];
 
-const parse = file.parse_file;
 const read_file = file.read_file;
 const export_map = file.export_as_json;
 
